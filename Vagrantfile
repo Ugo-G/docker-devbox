@@ -147,6 +147,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision 'docker', type: 'shell', path: 'provision/11-docker.sh', env: env
   config.vm.provision 'docker-group', type: 'shell', path: 'provision/13-docker-group.sh', env: env
 
+  config.vm.provision 'syncthing', type: 'shell', privileged: false, path: 'provision/16-syncthing.sh', env: env
+
   config.vm.provision 'docker-compose', type: 'shell', path: 'provision/21-docker-compose.sh', env: env
 
   config.vm.provision 'container-nginx-proxy', type: 'shell', privileged: false, path: 'provision/31-container-nginx-proxy.sh', env: env
